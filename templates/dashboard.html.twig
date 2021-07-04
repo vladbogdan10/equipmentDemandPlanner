@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% set title = station|capitalize %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1 class="center-text">{{ title }}</h1>
+    {% for key, report in data %}
+        <h2>{{ key }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Chairs</th>
+                    <th>Bed sheets</th>
+                    <th>Sleeping bags</th>
+                    <th>Camping tables</th>
+                    <th>Portable toilets</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Booked</td>
+                    {% for key, a in report %}
+                        <td>{{ report[key]['booked'] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Available</td>
+                    {% for key, a in report %}
+                        <td>{{ report[key]['available'] }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
+

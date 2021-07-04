@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: equipmentDemandPlanner_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=dbrootpw
+      - MYSQL_DATABASE=equipmentDemandPlanner
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=dbpw
+    ports:
+      - "8002:3306"
+
+  fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: equipmentDemandPlanner_fpm
+    volumes:
+      - ./:/var/www/app
+
+  nginx:
+    image: nginx:alpine
+    container_name: equipmentDemandPlanner_nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8000:80"
