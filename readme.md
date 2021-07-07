@@ -16,14 +16,14 @@ Run `docker exec -it equipmentDemandPlanner_fpm bin/console doctrine:fixtures:lo
 The app should be up and running at this point. Check the following routes.
 
 Routes:
-* dashboard view: http://localost:8000/dashboard/{station}  
-e.g.  http://localost:8000/dashboard/munich
-* api: http://localost:8000/api/{station}  
-e.g. http://localost:8000/api/munich
+* dashboard view: http://localhost:8000/dashboard/{station}  
+e.g.  http://localhost:8000/dashboard/munich
+* api: http://localhost:8000/api/{station}  
+e.g. http://localhost:8000/api/munich
 
 The routes also take an optional query parameter `month` e.g.
-* dashboard view: http://localost:8000/dashboard/{station}?month=july
-* api: http://localost:8000/api/{station}?month=july
+* dashboard view: http://localhost:8000/dashboard/{station}?month=july
+* api: http://localhost:8000/api/{station}?month=july
 
 If no month is provided the current calendar month will apply.
 
